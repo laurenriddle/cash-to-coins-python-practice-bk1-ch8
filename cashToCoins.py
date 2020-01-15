@@ -1,8 +1,12 @@
+import math
+
 '''
 Now do the reverse. Convert the dollar amount into the coins that make up that dollar amount. The final result is an object with the correct number of quarters, dimes, nickels, and pennies.
 '''
-dollarAmount = 18.63
+# 1st way to do cash to coins
 
+
+dollarAmount = 18.63
 piggyBank = {
     "pennies": 0,
     "nickels": 0,
@@ -44,3 +48,28 @@ def cash_to_coins():
 
 cash_to_coins()
 
+
+
+# 2nd way to do cash to coins
+def make_change():
+    dollar_amount = 8.69
+    piggyBank = {
+    "pennies": 0,
+    "nickels": 0,
+    "dimes": 0,
+    "quarters": 0
+    }
+    piggyBank["quarters"] = math.floor(dollar_amount / .25)
+    dollar_amount = dollar_amount % .25
+
+    piggyBank["dimes"] = math.floor(dollar_amount / .10)
+    dollar_amount = dollar_amount % .10
+
+    piggyBank["nickels"] = math.floor(dollar_amount / .05)
+    dollar_amount = dollar_amount % .05
+
+    piggyBank["pennies"] = math.ceil(dollar_amount / .01)
+
+    print(piggyBank)
+
+make_change()
